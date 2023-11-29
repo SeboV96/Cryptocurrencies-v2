@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import DOMPurify from 'dompurify'
+import DOMPurify from "dompurify";
 
 import "./Coin.css";
 
@@ -59,22 +59,40 @@ function Coin() {
             <tbody>
               <tr>
                 <td>
-                  {coin.market_data?.price_change_percentage_1h_in_currency.usd.toFixed(2)}%
+                  {coin.market_data?.price_change_percentage_1h_in_currency.usd.toFixed(
+                    2
+                  )}
+                  %
                 </td>
                 <td>
-                  {coin.market_data?.price_change_percentage_24h_in_currency.usd.toFixed(2)}%
+                  {coin.market_data?.price_change_percentage_24h_in_currency.usd.toFixed(
+                    2
+                  )}
+                  %
                 </td>
                 <td>
-                  {coin.market_data?.price_change_percentage_7d_in_currency.usd.toFixed(2)}%
+                  {coin.market_data?.price_change_percentage_7d_in_currency.usd.toFixed(
+                    2
+                  )}
+                  %
                 </td>
                 <td>
-                  {coin.market_data?.price_change_percentage_14d_in_currency.usd.toFixed(2)}%
+                  {coin.market_data?.price_change_percentage_14d_in_currency.usd.toFixed(
+                    2
+                  )}
+                  %
                 </td>
                 <td>
-                  {coin.market_data?.price_change_percentage_30d_in_currency.usd.toFixed(2)}%
+                  {coin.market_data?.price_change_percentage_30d_in_currency.usd.toFixed(
+                    2
+                  )}
+                  %
                 </td>
                 <td>
-                  {coin.market_data?.price_change_percentage_1y_in_currency.usd.toFixed(2)}%
+                  {coin.market_data?.price_change_percentage_1y_in_currency.usd.toFixed(
+                    2
+                  )}
+                  %
                 </td>
               </tr>
             </tbody>
@@ -105,10 +123,14 @@ function Coin() {
           </div>
         </div>
         <div className="content">
-            <div className="about">
-                <h3>About</h3>
-                <p>{coin.description?.en}</p>
-            </div>
+          <div className="about">
+            <h3>About</h3>
+            <p
+              dangerouslySetInnerHTML={{
+                _html: DOMPurify.sanitize(coin.description?.en),
+              }}
+            ></p>
+          </div>
         </div>
       </div>
     </div>

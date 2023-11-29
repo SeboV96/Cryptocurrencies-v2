@@ -127,7 +127,7 @@ function Coin() {
             <h3>About</h3>
             <p
               dangerouslySetInnerHTML={{
-                _html: DOMPurify.sanitize(coin.description?.en),
+                __html: DOMPurify.sanitize(coin.description?.en),
               }}
             ></p>
           </div>
